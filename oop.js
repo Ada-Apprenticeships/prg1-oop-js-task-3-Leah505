@@ -1,7 +1,6 @@
 const PRIORITY = { "LOW": 1, "MEDIUM": 3, "HIGH": 5, "URGENT": 7 };
 
 function validInteger(value) {
-    // Check if value is a number or a string that can be converted to an integer
     const parsed = parseInt(value, 10);
     return !isNaN(parsed) && Number.isInteger(parsed) && String(parsed) === value.toString() && parsed >= 0;
 }
