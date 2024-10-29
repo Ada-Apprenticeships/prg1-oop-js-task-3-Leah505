@@ -89,29 +89,6 @@ class ToDo {
     }
 }
 
-// del after
-console.log(validInteger ( '10' )) // returns True
-validInteger ( 10 ) // returns True 
-validInteger ( '-10' ) // returns False
-validInteger ( -10 ) // returns False
-validInteger ( 0.0 ) // returns False
-validInteger ( 10.0 ) // returns False
-validInteger ( -10.0 ) // returns False
-console.log(validatePriority ( 0 )) // returns 1
-validatePriority ( 1 ) // returns 1
-validatePriority ( 'A' ) // returns 1
-validatePriority ( '7' ) // returns 7
-console.log(validatePriority ( '3' )) // returns 1
-todaysDate() // returns the current date and time, whatever it is. E.g. 28/03/2023 09:30:04 
-
-
-const taskList = new ToDo() // creates an instance of a ToDo() object name taskList
-console.log(taskList.add(new Task ('Get Pasta', PRIORITY ['MEDIUM']))) // returns 1 as 1 task in list
-console.log(taskList.add (new Task ('Get Breakfast Cereal', PRIORITY ['MEDIUM'] ))) // returns 2 as 2 tasks in list
-console.log(taskList.task('Get Pasta'))
-console.log(taskList.list(PRIORITY [ 'MEDIUM' ] ))
-console.log(taskList.remove ('Get Breakfast Cereal')) // returns true (as task exists, and then removes it
-
 // Code for the automated tests
 module.exports = {
     PRIORITY, validInteger, validatePriority, todaysDate, ToDo, Task,
