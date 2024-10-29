@@ -18,54 +18,54 @@ function todaysDate() {
 }
 
 class Task {
-    _added;
-    _title;
-    _priority;
+    #added;
+    #title;
+    #priority;
 
     constructor(title, priority) {
-        this._added = todaysDate();
-        this._title = title;
-        this._priority = validatePriority(priority);
+        this.#added = todaysDate();
+        this.#title = title;
+        this.#priority = validatePriority(priority);
     }
 
     get added() {
-        return this._added;
+        return this.#added;
     }
 
     get title() {
-        return this._title;
+        return this.#title;
     }
 
     get priority() {
-        return this._priority;
+        return this.#priority;
     }
 
     set priority(newPriority) {
-        this._priority = validatePriority(newPriority);
+        this.#priority = validatePriority(newPriority);
     }
 }
 
 class ToDo {
-    _tasks;
+    #tasks;
 
     constructor() {
-        this._tasks = [];
+        this.#tasks = [];
     }
 
     // Method to add a task to the ToDo list
     add(task) {
         if (task instanceof Task) {
-            this._tasks.push(task);
-            return this._tasks.length;
+            this.#tasks.push(task);
+            return this.#tasks.length;
         }
         return 0;
     }
 
     // Method to remove a task by title
     remove(title) {
-        const taskIndex = this._tasks.findIndex(task => task.title === title);
+        const taskIndex = this.#tasks.findIndex(task => task.title === title);
         if (taskIndex !== -1) {
-            this._tasks.splice(taskIndex, 1);
+            this.#tasks.splice(taskIndex, 1);
             return true;
         }
         return false;
@@ -73,14 +73,14 @@ class ToDo {
 
     // Method to list tasks, filtered by priority if provided
     list(priority = 0) {
-        return this._tasks
+        return this.#tasks
             .filter(task => priority === 0 || task.priority === priority)
             .map(task => [task.added, task.title, task.priority]);
     }
 
     // Method to find and return a task by title
     task(title) {
-        const foundTask = this._tasks.find(task => task.title === title);
+        const foundTask = this.#tasks.find(task => task.title === title);
         if (!foundTask) {
             throw new Error(`Task '${title}' Not Found`);
         }
